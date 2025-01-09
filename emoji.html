@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playful Animated Emoji</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #face {
+            width: 200px;
+            height: 200px;
+            background-color: #ffeb3b;
+            border-radius: 50%;
+            position: relative;
+            animation: move-around 4s infinite ease-in-out, pulse 1s infinite;
+            border: 5px solid #f44336;
+            box-shadow: 0 0 20px rgba(255, 165, 0, 0.7);
+        }
+        .eyebrow {
+            width: 50px;
+            height: 10px;
+            background-color: #3e2723;
+            position: absolute;
+            top: 20px;
+            border-radius: 5px;
+        }
+        .eyebrow.left {
+            left: 30px;
+            transform: rotate(-15deg);
+        }
+        .eyebrow.right {
+            right: 30px;
+            transform: rotate(15deg);
+        }
+
+        .eye {
+            width: 45px;
+            height: 45px;
+            background-color: #3e2723;
+            border-radius: 50%;
+            position: absolute;
+            top: 50px;
+        }
+        .eye.left {
+            left: 40px;
+        }
+        .eye.right {
+            right: 40px;
+        }
+
+        .iris {
+            width: 22px;
+            height: 22px;
+            background-color: white;
+            border-radius: 50%;
+            position: relative;
+            margin: auto;
+            top: 12px;
+            animation: look-around 4s infinite;
+        }
+
+        #mouth {
+            width: 110px;
+            height: 50px;
+            background-color: rgb(255, 87, 34);
+            border-radius: 0 0 60px 60px;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: smile-frown 4s infinite;
+        }
+
+        @keyframes move-around {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(200px, 0); }
+            50% { transform: translate(200px, 200px); }
+            75% { transform: translate(0, 200px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes look-around {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(-5px, 5px); }
+            50% { transform: translate(5px, -5px); }
+        }
+
+        @keyframes smile-frown {
+            0%, 100% { border-radius: 0 0 60px 60px; }
+            50% { border-radius: 50px 50px 0 0; }
+        }
+    </style>
+</head>
+<body>
+    <div id="face">
+        <div class="eyebrow left"></div>
+        <div class="eyebrow right"></div>
+        <div class="eye left"><div class="iris"></div></div>
+        <div class="eye right"><div class="iris"></div></div>
+        <div id="mouth"></div>
+    </div>
+</body>
+</html>
